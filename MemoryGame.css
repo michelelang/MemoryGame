@@ -1,28 +1,55 @@
+body {
+	background: black;
+	margin: 0;
+}
+
+#header {
+	color: rgb(199,242,249);
+	text-align: center;
+	margin-top: -30px;
+	font-size: 25px;
+	text-shadow: 2px 2px black;
+}
+
 #startBtn {
 	height: 50px;
 	width: 150px;
-	background: rgb(0,84,63);
-	color: white;
+	margin-left: 1.5%;
+	margin-top: 15px;
+	background: rgb(199,242,249);
+	color: black;
+	border: 1px solid black;
 }
 
 #memoryBoard {
-	height: 800px;
-	width: 1180px;
-	background: maroon;
-	border: 4px solid rgb(0,84,63);
-	margin: 0, auto;
-	padding: 10px;
+	margin-left: 8%;
+	margin-top: 2%;
+	text-anchor: center;
+	height: 845px;
+	width: 1200px;
+	background-image: url("images/bgrd_coraline.jpg");
+	background-size: contain;
+	border: 4px solid black;
+	
 }
 
-.tile {
-	height: 225px;
-	width: 225px;
-	background-image: url(images/memory_tile.jpg);
+.row {
+	height: 234px;
+	width: 150px;
+	margin-left: 10%;
+	margin-top: 2%;
 	display: inline-block;
-	margin-left: 42px;
-	margin-right: 18px;
-	margin-top: 10px;
+	background-size: cover;
+}
+
+
+.card{
+	height: 234px;
+	width: 150px;
+	background-image: url("images/card_bkgrd.jpg");
 	background-size: contain;
+	display: inline-block;
+	background-repeat: no-repeat;
 }
 
 .images {

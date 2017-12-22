@@ -30,13 +30,27 @@ Game.prototype.memory_tile_shuffle = function(loadImages) {
 }
 
 Game.prototype.newBoard = function() {
-	// tiles_flipped = 0;
-	// var output = '';
+	tiles_flipped = 0;
 	memory_images_array.memory_tile_shuffle();
-	for (var i = 0; i<memory_images_array.length; i++) {
-	// 	output += '<div id="tile_'+[i]+'" onclick="memoryFlipTile(this,\''+memory_images_array[i]+'\)"></div>';
+	var tile_ID = document.getElementsByClassName('tile');
+	
+	// for (var i = 0; i<memory_images_array.length; i++) {
+	// 	tile_ID[i].addEventListener('click', memoryFlipTile);
 	// }
-	// document.getElementById('memoryBoard').innerHTML = output;
 }
 
 
+
+Game.prototype.memoryFlipTile = function() {
+
+	var tile_ID = this; //document.getElementsByClassName('tile');
+	if(tile_ID.getAttribute('src').contain('memory_tile.jpg')){
+		image.src='./memory_tile.jpg';
+	}
+
+	// else {
+	// 	imgage.src=tile_images_src;
+	// }
+	console.log(this);
+
+};
