@@ -1,5 +1,5 @@
 
-
+var pausedGame = false;
 
 
 function shuffleArray(arr) {
@@ -22,14 +22,10 @@ var myArr = ['images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg','images
 
 function newGame() {
 	
-	// this.innerHTML = "";
 	shuffleArray(myArr);
-	// newBoard();
 
 }
 
-
-// function newBoard() {
 
 	for(var i = 0; i<4; i++) {
 		var row = document.createElement('div');
@@ -37,14 +33,13 @@ function newGame() {
 		for (var j = 0; j<3; j++) {
 			var col = document.createElement('div');
 			col.className = 'card';
-			col.id = (3*j+i);	
+			col.id = (4*j+i);	
 			col.addEventListener("click", showCard);
 			row.appendChild(col);
 		}
 		document.getElementById('memoryBoard').appendChild(row);
 	}
-// 	return this;
-// }
+
 
 
 newGame();
@@ -56,37 +51,48 @@ newGame();
 
 function showCard(event) {
 
-	var card = event.target;
-	var cardId = card.id;
-	card.style.backgroundImage = "url("+myArr[cardId]+")";
-	card.style.backgroundSize ="160px 234px";
-	card.style.border = "2px solid rgb(199,242,249)";
+	if (!(pausedGame)) {
 
-	if (clickedCard == 0) {
-		card1 = card;
-		clickedCard = 1;
-		console.log(clickedCard);
-	}
+		var card = event.target;
+		var cardId = card.id;
+		card.style.backgroundImage = "url("+myArr[cardId]+")";
+		card.style.backgroundSize ="160px 234px";
+		card.style.border = "2px solid rgb(199,242,249)";
 
-	else {
-		card2 = card;
-	
-
-		if (card1.style.backgroundImage == card2.style.backgroundImage) {
-			correct++;
-			clickedCard = 0;
-			console.log("correct" + correct)
+		if (clickedCard == 0) {
+			card1 = card;
+			clickedCard = 1;
+			console.log(clickedCard);
 		}
 
 		else {
-			setTimeout(function(){
-			card1.style.backgroundImage = "url('images/card_bkgrd.jpg')";
-			card2.style.backgroundImage = "url('images/card_bkgrd.jpg')";
-			clickedCard = 0;
+			card2 = card;
+		
 
-			}, 2000);
+			if (card1.style.backgroundImage == card2.style.backgroundImage) {
+				correct++;
+				clickedCard = 0;
+				console.log("correct" + correct)
+			}
+
+			else {
+				pausedGame = true;
+				setTimeout(function(){
+				card1.style.backgroundImage = "url('images/card_bkgrd.jpg')";
+				card2.style.backgroundImage = "url('images/card_bkgrd.jpg')";
+				clickedCard = 0;
+				pausedGame = false;
+				}, 2000);
+			}
+
+			if(correct == 6) {
+				alert("Yay, you won!");
+				location.reload();
+			}
+
 		}
-	}
+
+	};
 
 
 }
