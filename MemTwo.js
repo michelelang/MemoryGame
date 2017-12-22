@@ -1,6 +1,5 @@
 
-var clickedCard = 0;
-var correct = 0;
+
 
 
 function shuffleArray(arr) {
@@ -22,9 +21,15 @@ var myArr = ['images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg','images
 
 
 function newGame() {
+	
+	// this.innerHTML = "";
 	shuffleArray(myArr);
+	// newBoard();
+
 }
 
+
+// function newBoard() {
 
 	for(var i = 0; i<4; i++) {
 		var row = document.createElement('div');
@@ -38,15 +43,19 @@ function newGame() {
 		}
 		document.getElementById('memoryBoard').appendChild(row);
 	}
+// 	return this;
+// }
 
 
 newGame();
 
-
+	var clickedCard = 0;
+	var correct = 0;
+	var card1;
+	var card2;
 
 function showCard(event) {
-	var card1;
-var card2;
+
 	var card = event.target;
 	var cardId = card.id;
 	card.style.backgroundImage = "url("+myArr[cardId]+")";
@@ -55,25 +64,28 @@ var card2;
 
 	if (clickedCard == 0) {
 		card1 = card;
-		clickedCard == 1;
+		clickedCard = 1;
+		console.log(clickedCard);
 	}
 
 	else {
 		card2 = card;
-	}
+	
 
-	if(card1.style.backgroundImage == card2.style.backgroundImage) {
-		correct++;
-		clickedCard = 0;
-	}
+		if (card1.style.backgroundImage == card2.style.backgroundImage) {
+			correct++;
+			clickedCard = 0;
+			console.log("correct" + correct)
+		}
 
-	else {
-		setTimeout(function()
-		card1.style.backgroundImage = "url('images/bgrd_coraline.jpg')";
-		card2.style.backgroundImage = "url('images/bgrd_coraline.jpg')";
-		clickedCard = 0;
+		else {
+			setTimeout(function(){
+			card1.style.backgroundImage = "url('images/card_bkgrd.jpg')";
+			card2.style.backgroundImage = "url('images/card_bkgrd.jpg')";
+			clickedCard = 0;
 
-		)
+			}, 2000);
+		}
 	}
 
 
