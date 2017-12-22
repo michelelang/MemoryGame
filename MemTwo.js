@@ -25,8 +25,6 @@ function newGame() {
 	shuffleArray(myArr);
 
 }
-
-
 	for(var i = 0; i<4; i++) {
 		var row = document.createElement('div');
 		row.className = 'row';
@@ -39,8 +37,6 @@ function newGame() {
 		}
 		document.getElementById('memoryBoard').appendChild(row);
 	}
-
-
 
 newGame();
 
@@ -85,7 +81,7 @@ function showCard(event) {
 				}, 2000);
 			}
 
-			if(correct == 6) {
+			if(correct >= 6) {
 				alert("Yay, you won!");
 				location.reload();
 			}

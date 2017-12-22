@@ -17,10 +17,10 @@ body {
 	width: 150px;
 	margin-left: 1.5%;
 	margin-top: 15px;
-	font-size: 15px;
+	font-size: 12px;
 	background: rgb(199,242,249);
-	color: black;
-	border: 1px solid red;
+	color: rgb(217,62,2);
+	border: 5px solid rgb(61,78,111);
 	font-family: 'Fontdiner Swanky', cursive;
 }
 
@@ -42,7 +42,7 @@ body {
 	margin-left: 10%;
 	margin-top: -2%;
 	display: inline-block;
-	background-size: cover;
+	background-size: contain;
 }
 
 
@@ -58,4 +58,14 @@ body {
 .images {
 	height: 225px;
 	width: 225px;
+}
+
+@media only screen and (max-width: 480px) {
+	.row {
+		max-width: 100%;
+	}
+
+	.card {
+		max-width: 100%;
+	}
 }
